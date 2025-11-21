@@ -1,0 +1,205 @@
+:root {
+    --primary-color: #49BBBD;
+    --secondary-color: rgba(255, 255, 255, 0.3); 
+    --card-color: rgba(255, 255, 255, 0.8);
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --border-color: #dbdbdb;
+    --text-light: rgba(0, 0, 0, 0.6);
+
+    
+    /* Spacing variables cho responsive */
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    
+    /* Container max-width */
+    --container-max: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+    line-height: 1.6;
+    font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Điều chỉnh font-size cho mobile */
+@media (max-width: 768px) {
+    html {
+        font-size: 56.25%; /* 1rem = 9px - giảm 10% */
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 50%; /* 1rem = 8px - giảm 20% */
+    }
+}
+
+body {
+    overflow-x: hidden; /* Ngăn scroll ngang */
+}
+
+/* Grid System Responsive */
+.grid {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        padding: 0 1rem;
+    }
+}
+
+.grid__full-width {
+    width: 100%;
+    max-width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+}
+
+/* Responsive columns */
+.grid__column-2 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 1rem;
+}
+
+.grid__column-3 {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+    padding: 0 1rem;
+}
+
+.grid__column-4 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding: 0 1rem;
+}
+
+/* Tablet: 2 cột */
+@media (max-width: 1024px) {
+    .grid__column-3,
+    .grid__column-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* Mobile: 1 cột */
+@media (max-width: 768px) {
+    .grid__column-2,
+    .grid__column-3,
+    .grid__column-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Image responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Animation - giữ nguyên để các card float */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Utility classes */
+.text-center {
+    text-align: center;
+}
+
+.hidden-mobile {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hidden-mobile {
+        display: none;
+    }
+}
+
+.hidden-desktop {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hidden-desktop {
+        display: block;
+    }
+}
+@media (max-width: 1024px) {
+    .header__container { padding: 0 2rem; }
+    .header__nav-list { gap: 2rem; flex-wrap: wrap; justify-content: center; }
+    .hero__container { padding: 0 3rem; gap: 4rem; }
+    .hero__content { margin-left: 0; margin-top: -50px; }
+    .hero__img { width: 100%; margin-left: 0; max-height: 500px; }
+    .card { padding: 1.5rem; border-radius: 15px; }
+    .card--top-right { left: -80px; top: 15%; }
+    .card--middle-right { right: 5%; }
+    .card--bottom-left { left: -8%; bottom: 5%; }
+    .card--stats { min-width: 180px; gap: 1rem; }
+    .card--notification { min-width: 220px; gap: 1rem; }
+    .card--class { min-width: 200px; gap: 1rem; }
+    .card__icon { width: 40px; height: 40px; font-size: 2rem; }
+    .totals { justify-content: space-around; gap: 2rem; }
+}
+
+/* Mobile (<=768px) */
+@media (max-width: 768px) {
+    .banner { min-height: 60vh; clip-path: ellipse(100% 100% at 50% 0%); padding-top: 70px; }
+    .header { padding: 1rem 0; }
+    .header__container { padding: 0 1.5rem; flex-wrap: wrap; }
+    .header__logo { font-size: 1.4rem; flex: 0 0 auto; }
+    .header__logo-icon { font-size: 2.5rem; }
+    .header__nav { display: none; }
+    .header__nav-item-link { font-size: 1.4rem; }
+    .header__auth { flex: 0 0 auto; gap: 1rem; }
+    .btn--login, .btn--singin { width: 70px; height: 35px; font-size: 1.2rem; }
+    .hero { padding: 3rem 0 5rem; }
+    .hero__container { grid-template-columns: 1fr; padding: 0 2rem; gap: 3rem; }
+    .hero__content { margin-left: 0; margin-top: 0; text-align: center; }
+    .hero__description { margin-bottom: 3rem; }
+    .hero__actions { justify-content: center; gap: 2rem; }
+    .btn--primary { padding: 1.5rem 3rem; font-size: 1.4rem; }
+    .btn__icon { font-size: 4rem; }
+    .hero__visual { min-height: 300px; }
+    .hero__img { max-height: 400px; }
+    .cards { display: none; }
+    .success { padding: 6rem 0 4rem; }
+    .success__container { padding: 0 2rem; }
+    .totals { flex-direction: column; gap: 3rem; padding: 0 2rem; }
+    .total__student, .total__success, .total__questions, .total__chief, .total__years { width: 100%; }
+    .total__student-text, .total__success-text, .total__questions-text, .total__chief-text, .total__years-text { padding-left: 0; }
+}
