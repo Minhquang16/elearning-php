@@ -17,15 +17,7 @@ $post = [
     ]
 ];
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>TOTC – Blog Detail</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="./assets/CSS/blog.css">
+<?php include 'header.php'; ?>
     <style>
         :root{
             --navy: #2F327D;
@@ -138,31 +130,7 @@ $post = [
             .author-bar{flex-direction:column;align-items:flex-start;gap:10px}
         }
     </style>
-</head>
 <body>
-
-<header>
-    <div class="container nav">
-        <div class="brand">
-            <div class="diamond"><span>TOTC</span></div>
-        </div>
-
-        <ul class="menu" role="navigation">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Courses</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a class="active" href="#">Blog</a></li>
-            <li><a href="#">About Us</a></li>
-        </ul>
-
-        <div class="user">
-            <img src="<?= $author['avatar'] ?>" alt="User avatar">
-            <strong><?= htmlspecialchars($author['name']) ?></strong>
-            <i class="caret"></i>
-        </div>
-    </div>
-</header>
-
 <!-- HERO -->
 <section class="hero">
     <img src="<?= $post['hero'] ?>" alt="Classroom cover">
@@ -241,34 +209,7 @@ $post = [
     </section>
 
 <!-- FOOTER -->
-<footer>
-    <div class="container">
-        <div class="foot-top">
-            <div class="foot-brand">
-                <div class="diamond"><span>TOTC</span></div>
-                <div class="foot-sep"></div>
-                <div>Virtual Class<br>for Zoom</div>
-            </div>
-
-            <div class="newsletter">
-                <div>Subscribe to get our Newsletter</div>
-                <form class="sub-form" action="#" method="post">
-                    <input type="email" placeholder="Your Email" aria-label="Your email">
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="foot-links">
-            <a href="#">Careers</a>
-            <span>|</span>
-            <a href="#">Privacy Policy</a>
-            <span>|</span>
-            <a href="#">Terms &amp; Conditions</a>
-        </div>
-        <div class="copy">© 2021 Class Technologies Inc.</div>
-    </div>
-</footer>
+<?php include 'footer.php'; ?>
 
 </body>
 </html>

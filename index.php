@@ -39,19 +39,19 @@
                 <nav class="header__nav">
                     <ul class="header__nav-list">
                         <li class="header__nav-item">
-                            <a href="" class="header__nav-item-link">Home</a>
+                            <a href="index.php" class="header__nav-item-link">Home</a>
                         </li>
                         <li class="header__nav-item">
-                            <a href="" class="header__nav-item-link">Courses</a>
+                            <a href="course.php" class="header__nav-item-link">Courses</a>
                         </li>
                         <li class="header__nav-item">
                             <a href="" class="header__nav-item-link">Careers</a>
                         </li>
                         <li class="header__nav-item">
-                            <a href="" class="header__nav-item-link">Blog</a>
+                            <a href="blog.php" class="header__nav-item-link">Blog</a>
                         </li>
                         <li class="header__nav-item">
-                            <a href="" class="header__nav-item-link">About Us</a>
+                            <a href="blog-details.php" class="header__nav-item-link">About Us</a>
                         </li>
                     </ul>
                 </nav>

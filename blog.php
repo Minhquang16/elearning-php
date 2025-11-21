@@ -1,51 +1,7 @@
-<?php
-// index.php
-?>
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>TOTC Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/CSS/main.css">
-        <link rel="stylesheet" href="./assets/CSS/base.css">
-        <link rel="stylesheet" href="./assets/CSS/course_detail.css">
-         <link rel="stylesheet" href="./assets/CSS/blog.css">
-    
-</head>
+<?php include 'header.php'; ?>
+
 <body>
 <div class="page">
-
-    <!-- HEADER -->
-    <header class="header-nav">
-        <div class="header-nav__left">
-                <div class="header__logo">
-                    <div class="header__logo-icon">
-                    <i class="fa-brands fa-codiepie"></i>
-                    </div>
-                    dev <br> Alpha
-                </div>
-        </div>
-
-        <nav class="header-nav__menu">
-            <ul class="header-nav__list">
-                <li class="header-nav__item"><a href="landing.php" class="header-nav__link">Home</a></li>
-                <li class="header-nav__item"><a href="#" class="header-nav__link">Courses</a></li>
-                <li class="header-nav__item"><a href="#" class="header-nav__link">Careers</a></li>
-                <li class="header-nav__item"><a href="blog.php" class="header-nav__link">Blog</a></li>
-                <li class="header-nav__item"><a href="#" class="header-nav__link">About Us</a></li>
-            </ul>
-        </nav>
-
-        <div class="header-nav__profile">
-            <img src="https://assets.realmadrid.com/is/image/realmadrid/1330603286208?$Mobile$&fit=wrap&wid=312" alt="Profile Picture" class="header-nav__avatar">
-            <span class="header-nav__name">CR7</span>
-            <span class="header-nav__toggle"><i class="fa-solid fa-chevron-down"></i></span>
-        </div>
-    </header>
-
     <!-- HERO -->
     <section class="hero">
         <div class="container hero-inner">
@@ -165,41 +121,7 @@
     </section>
 
     <!-- FOOTER -->
-     <footer class="main-footer">
-            <div class="footer-container">
-            <div class="footer-header">
-                <div class="footer__logo">
-                    <div class="footer__logo-icon">
-                        <i class="fa-brands fa-codiepie"></i>
-                    </div>
-                    dev <br> Alpha
-                </div>
-                <div class="vertical-divider"></div>
-                <div class="footer-title">Virtual Class <br> for Zoom</div>
-            </div>
-
-                <div class="newsletter-section">
-                    <p class="subscribe-text">Subscribe to get our Newsletter</p>
-                    <form class="subscribe-form">
-                        <input type="email" placeholder="Your Email" class="email-input" required>
-                        <button type="submit" class="subscribe-btn">Subscribe</button>
-                    </form>
-                </div>
-
-                <div class="footer-links-and-copyright">
-                    <div class="footer-links">
-                        <a href="#" class="footer-link">Careers</a>
-                        <span class="link-separator">·</span>
-                        <a href="#" class="footer-link">Privacy Policy</a>
-                        <span class="link-separator">·</span>
-                        <a href="#" class="footer-link">Terms & Conditions</a>
-                    </div>
-                    <p class="copyright-text">
-                        © 2021 Class Technologies Inc.
-                    </p>
-                </div>
-            </div>
-        </footer>
+     <?php include 'footer.php'; ?>
 
 </div>
 </body>
