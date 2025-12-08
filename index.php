@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+// Ảnh avatar mặc định
+$defaultAvatar = '';
+
+// Nếu sau này bạn có lưu avatar trong session thì dùng, còn không thì dùng mặc định
+$avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] !== ''
+    ? $_SESSION['user']['avatar']
+    : $defaultAvatar;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,16 +35,35 @@ session_start();
              - display=swap: hiện font fallback trước, sau đó swap sang Roboto
              - Roboto là font sans-serif phổ biến, dễ đọc trên web -->
         <link rel="stylesheet" href="assets/CSS/footer.css">
-
     </head>
     <body>
+        <style>
+            /* Avatar nhỏ trong popup tài khoản */
+.header-nav__dropdown-avatar {
+    width: 64px;          /* kích thước avatar */
+    height: 64px;
+    border-radius: 50%;   /* bo tròn */
+    object-fit: cover;    /* crop vừa khung */
+    flex-shrink: 0;
+}
+
+/* nếu card của bạn cần co lại nữa thì có thể thêm */
+.header-nav__dropdown {
+    max-width: 320px;     /* hoặc 280 tuỳ ý */
+}
+.header-nav__dropdown-avatar {
+    width: 40px;
+    height: 40px;
+}
+
+        </style>
         <div class="banner">
         <header class="header">
             <div class="header__container">
                 <!--logo-->
                 <div class="header__logo">
                     <div class="header__logo-icon">
-                    <i class="fa-brands fa-codiepie"></i>
+                        <i class="fa-brands fa-codiepie"></i>
                     </div>
                     dev <br> Alpha
                 </div>
@@ -60,28 +87,25 @@ session_start();
                         </li>
                     </ul>
                 </nav>
+
                 <!--auth buttons-->
-            <div class="header__auth">
-    <?php if (isset($_SESSION['user'])): ?>
-        
-        <div class="header__profile">
-            <img src="uploads/IMAGE/default-avatar.png" class="header__avatar" alt="avatar">
-            <span class="header__username">
-                <?= htmlspecialchars($_SESSION['user']['username']) ?>
-            </span>
-            <a href="controllers/AuthController.php?action=logout" class="btn btn--logout">Logout</a>
-        </div>
-
-    <?php else: ?>
-
-        <a href="login.php" class="btn btn--login">Login</a>
-        <a href="register.php" class="btn btn--singin">Sign Up</a>
-
-    <?php endif; ?>
-</div>
-
-
+                <div class="header__auth">
+                    <?php if (isset($_SESSION['user'])): ?>
+                        <div class="header__profile">
+                            <img src="<?= htmlspecialchars($avatarPath) ?>" class="header__avatar" alt="Avatar">
+                            <span class="header__username">
+                                <?= htmlspecialchars($_SESSION['user']['username']) ?>
+                            </span>
+                            <a href="controllers/AuthController.php?action=logout" class="btn btn--logout">Logout</a>
+                        </div>
+                    <?php else: ?>
+                        <a href="login.php" class="btn btn--login">Login</a>
+                        <a href="register.php" class="btn btn--singin">Sign Up</a>
+                    <?php endif; ?>
+                </div>
+            </div>
         </header>
+
          <!-- HERO SECTION BLOCK -->
             <section class="hero">
                 <div class="hero__container">
@@ -122,20 +146,19 @@ session_start();
                             <div class="card card--stats card--top-right">
                                 <a href="course-calandar.php">
                                     <div class="card__icon card__icon--blue">
-                                    <i class="fa-solid fa-calendar-days"></i>
-                                </div>
-                                <div class="card__content">
-                                    <div class="card__number"><a href="course-calandar.php"></a>250k</div>
-                                    <div class="card__label">Assisted Student</div>
-                                </div>
-                            </div>
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                    </div>
+                                    <div class="card__content">
+                                        <div class="card__number"><a href="course-calandar.php"></a>250k</div>
+                                        <div class="card__label">Assisted Student</div>
+                                    </div>
                                 </a>
-                                
+                            </div>
 
                             <!-- Congratulations Card -->
                             <div class="card card--notification card--middle-right">
                                 <div class="card__icon card__icon--orange">
-                                <i class="fa-solid fa-envelope"></i>
+                                    <i class="fa-solid fa-envelope"></i>
                                 </div>
                                 <div class="card__content">
                                     <div class="card__title">Congratulations</div>
@@ -165,6 +188,7 @@ session_start();
                 </div>
             </section>
         </div>
+
         <!-- SUCCESS SECTION BLOCK -->
         <section class="success">
                 <div class="success__container">
@@ -177,7 +201,8 @@ session_start();
                     </div>
                 </div>
         </section>
-<!--Row total-->
+
+        <!--Row total-->
         <div class="totals">
             <div class="total__student">
                 <div class="total__student-number">
@@ -220,144 +245,147 @@ session_start();
                 </div>
             </div>
         </div>
+
         <section class="software">
-                <div class="software__container">
-                    <div class="software__content">
-                        <h2 class="software__title">All-In-One
+            <div class="software__container">
+                <div class="software__content">
+                    <h2 class="software__title">All-In-One
                         <span class="software___highligt-text">
                             Cloud Software.
                         </span>
-                        </h2>
-                        <p class="software__description">
+                    </h2>
+                    <p class="software__description">
                         TOTC is one powerful online software suite that combines all the tools
                         <br> needed to run a successful school or office.
-
-                        </p>
-                    </div>
+                    </p>
                 </div>
+            </div>
         </section>
+
         <!--3-block-->
-            <div class="blocks">
-                <div class="block__container">
-                    <div class="block__file">
-                        <div class="block__icon block__icon--color1">
+        <div class="blocks">
+            <div class="block__container">
+                <div class="block__file">
+                    <div class="block__icon block__icon--color1">
                         <i class="fa-regular fa-file-zipper"></i>
-                        </div>
-                        <div class="block__content">
-                            <div class="block__title">
+                    </div>
+                    <div class="block__content">
+                        <div class="block__title">
                             Online Billing,<br> Invoicing, & Contracts
-                            </div>
-                            <div class="block__description ">
+                        </div>
+                        <div class="block__description ">
                             Simple and secure control of your<br>
                             organization's financial and legal<br>
                             transactions. Send customized<br>
                             invoices and contracts
-                            </div>
                         </div>
                     </div>
-                    <div class="block__scheduling ">
-                        <div class="block__icon block__icon--color2">
+                </div>
+                <div class="block__scheduling ">
+                    <div class="block__icon block__icon--color2">
                         <i class="fa-solid fa-calendar-days"></i>
-                        </div>
-                        <div class="block__content">
-                            <div class="block__title">
+                    </div>
+                    <div class="block__content">
+                        <div class="block__title">
                             Easy Scheduling & <br>Attendance Tracking
-                            </div>
-                            <div class="block__description ">
+                        </div>
+                        <div class="block__description ">
                             Schedule and reserve classrooms at<br>
                             one campus or multiple campuses.<br>
                              Keep detailed records of student <br>
                              attendance
-                            </div>
                         </div>
                     </div>
-                    <div class="block__customer">
-                        <div class="block__icon block__icon--color3">
+                </div>
+                <div class="block__customer">
+                    <div class="block__icon block__icon--color3">
                         <i class="fa-solid fa-users-line"></i>
-                        </div>
-                        <div class="block__content">
-                            <div class="block__title">
+                    </div>
+                    <div class="block__content">
+                        <div class="block__title">
                             Customer Tracking
-                            </div>
-                            <div class="block__description ">
+                        </div>
+                        <div class="block__description ">
                             Automate and track emails to<br>
                             individuals or groups. Skilline's<br>
                             built-in system helps organize<br>
                             your organization 
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
         <!--what is alpha-->
         <section class="alpha">
-                <div class="alpha__container">
-                    <div class="alpha__content">
-                        <h2 class="alpha__title">What is
+            <div class="alpha__container">
+                <div class="alpha__content">
+                    <h2 class="alpha__title">What is
                         <span class="alpha___highligt-text">
                             ALPHA?
                         </span>
-                        </h2>
-                        <p class="alpha__description">
+                    </h2>
+                    <p class="alpha__description">
                         ALPHA is a platform that allows educators to create online classes whereby they can<br>
                         store the course materials online; manage assignments, quizzes and exams; monitor<br>
                         due dates; grade results and provide students with feedback all in one place.<br>
-                        </p>
-                    </div>
-                </div>
-        </section>
-        <!--2 boxs-->
-            <div class="boxes">
-                <div class="box box--instructors">
-                    <div class="box__title">
-                        FOR INSTRUCTORS
-                    </div>
-                    <button class="box__btn1">Start a class today</button>
-                </div>
-                <div class="box box--students">
-                    <div class="box__title">
-                        FOR STUDENTS
-                    </div>
-                    <button class="box__btn2">Enter access code</button>
-                </div>
-            </div>
-
-            <section class="totc-feature-section">
-                <div class="feature-content">
-                    <div class="deco-block-1 top-left1-deco"></div>
-                    <div class="contents">
-                        <h2 class="feature-heading">
-                            Everything you can do in a physical <br>classroom,
-                            <span class="highlight-blue">you can do with TOTC</span>
-                        </h2>
-                        <p class="feature-description">
-                            TOTC's school management software helps traditional <br> 
-                            and online schools manage scheduling, attendance,<br>
-                            payments and virtual classrooms all in one secure cloud-<br>
-                            based system.
-                        </p>
-                        <a href="#" class="learn-more">Learn more</a>
-                    </div>
-                    <div class="deco-block-2 bottom-right1-deco"></div>
-                </div>
-
-                <div class="feature-visual">
-                    <div class="deco-block-3 top-left2-deco"></div>
-                    <img src="./uploads/IMAGE/confident-teacher-explaining-lesson-pupils 1.png" alt="Teacher instructing students in a hybrid classroom setting" class="classroom-image">
-                    <div class="deco-block-4 bottom-right2-deco"></div>
-                </div>
-            </section>
-    
-        <section class="feature-sections">
-                <div class="section-headers section-header--centered">
-                    <h2 class="section-headers__title">
-                        Our 
-                        <span class="section-headers__title-highlight">Features</span>
-                    </h2>
-                    <p class="section-headers__subtitle">
-                        This very extraordinary feature, can make learning activities more efficient
                     </p>
                 </div>
+            </div>
+        </section>
+
+        <!--2 boxs-->
+        <div class="boxes">
+            <div class="box box--instructors">
+                <div class="box__title">
+                    FOR INSTRUCTORS
+                </div>
+                <button class="box__btn1">Start a class today</button>
+            </div>
+            <div class="box box--students">
+                <div class="box__title">
+                    FOR STUDENTS
+                </div>
+                <button class="box__btn2">Enter access code</button>
+            </div>
+        </div>
+
+        <section class="totc-feature-section">
+            <div class="feature-content">
+                <div class="deco-block-1 top-left1-deco"></div>
+                <div class="contents">
+                    <h2 class="feature-heading">
+                        Everything you can do in a physical <br>classroom,
+                        <span class="highlight-blue">you can do with TOTC</span>
+                    </h2>
+                    <p class="feature-description">
+                        TOTC's school management software helps traditional <br> 
+                        and online schools manage scheduling, attendance,<br>
+                        payments and virtual classrooms all in one secure cloud-<br>
+                        based system.
+                    </p>
+                    <a href="#" class="learn-more">Learn more</a>
+                </div>
+                <div class="deco-block-2 bottom-right1-deco"></div>
+            </div>
+
+            <div class="feature-visual">
+                <div class="deco-block-3 top-left2-deco"></div>
+                <img src="./uploads/IMAGE/confident-teacher-explaining-lesson-pupils 1.png" alt="Teacher instructing students in a hybrid classroom setting" class="classroom-image">
+                <div class="deco-block-4 bottom-right2-deco"></div>
+            </div>
+        </section>
+    
+        <section class="feature-sections">
+            <div class="section-headers section-header--centered">
+                <h2 class="section-headers__title">
+                    Our 
+                    <span class="section-headers__title-highlight">Features</span>
+                </h2>
+                <p class="section-headers__subtitle">
+                    This very extraordinary feature, can make learning activities more efficient
+                </p>
+            </div>
         </section>
 
         <section class="virtuals">
@@ -371,7 +399,8 @@ session_start();
                     <div class="app-frame__dot app-frame__dot--yellow"></div>
                     <div class="app-frame__dot app-frame__dot--green"></div>
                 </div>
-<!-- zoom-->
+
+                <!-- zoom-->
                 <div class="virtuals-class">
                     <div class="virtuals-class-one">
                         <div class="zoom__inst">
@@ -410,69 +439,69 @@ session_start();
                     </div>
                 </div>
             </div>
+
             <div class="virtuals__mem">
                 <div class="zoom__member3">
-                        <img src="./uploads/IMAGE/Mask Group (1).png" alt="Collaborator on the meet" class="virtuals-class__col3">
-                        <div class="virtuals-class__infor-list-3">
-                            <div class="virtuals-class__icon"><i class="fa-solid fa-signal"></i></div>
-                            <div class="virtuals-class__name">Adam Levin</div>
-                        </div>
+                    <img src="./uploads/IMAGE/Mask Group (1).png" alt="Collaborator on the meet" class="virtuals-class__col3">
+                    <div class="virtuals-class__infor-list-3">
+                        <div class="virtuals-class__icon"><i class="fa-solid fa-signal"></i></div>
+                        <div class="virtuals-class__name">Adam Levin</div>
                     </div>
-                    <div class="zoom__member4">
-                        <img src="./uploads/IMAGE/image 10.png" alt="Collaborator on the meet" class="virtuals-class__col4">
-                        <div class="virtuals-class__infor-list-4">
-                            <div class="virtuals-class__icon"><i class="fa-solid fa-signal"></i></div>
-                            <div class="virtuals-class__name">Paticia Mendoza</div>
-                        </div>
+                </div>
+                <div class="zoom__member4">
+                    <img src="./uploads/IMAGE/image 10.png" alt="Collaborator on the meet" class="virtuals-class__col4">
+                    <div class="virtuals-class__infor-list-4">
+                        <div class="virtuals-class__icon"><i class="fa-solid fa-signal"></i></div>
+                        <div class="virtuals-class__name">Paticia Mendoza</div>
                     </div>
+                </div>
             </div>
+
             <!--deco blocks - bottom -->
             <div class="block__bottom-red"></div>
             <div class="block__bottom-purple"></div>
 
-
             <div class="virtuals__content">
                 <h2 class="virtuals__title">
-                A <span class="virtuals__title--highlight">user interface</span> designed<br>
-                for the classroom
+                    A <span class="virtuals__title--highlight">user interface</span> designed<br>
+                    for the classroom
                 </h2>
                 <ul class="virtuals__list">
                     <li class="virtuals__item">
                         <div class="virtuals__icon"><i class="fa-solid fa-grip"></i></div>
                         <p class="virtuals__text">
-                        Teachers don't get lost in the grid view <br> and have a dedicated Podium space.
+                            Teachers don't get lost in the grid view <br> and have a dedicated Podium space.
                         </p>
                     </li>
 
                     <li class="virtuals__item">
                         <div class="virtuals__icon"><i class="fa-solid fa-layer-group"></i></div>
                         <p class="virtuals__text">
-                        TA's and presenters can be moved to <br>the front of the class.
+                            TA's and presenters can be moved to <br>the front of the class.
                         </p>
                     </li>
 
                     <li class="virtuals__item">
                         <div class="virtuals__icon"><i class="fa-solid fa-user-group"></i></div>
                         <p class="virtuals__text">
-                        Teachers can easily see all students <br>and class data at one time.
+                            Teachers can easily see all students <br>and class data at one time.
                         </p>
                     </li>
                 </ul>
             </div>
-
         </section>
 
         <section class="tools">
             <div class="tools__content">
                 <h2 class="tools__title">
-                <span class="tools__highlight">Tools </span>
-                For Teachers <br>And Learners
+                    <span class="tools__highlight">Tools </span>
+                    For Teachers <br>And Learners
                 </h2>
                 <p class="tools__description">
-                Class has a dynamic set of teaching tools built to<br>
-                be deployed and used during class. Teachers can<br>
-                hand out assignments in real-time for students to<br>
-                complete and submit.
+                    Class has a dynamic set of teaching tools built to<br>
+                    be deployed and used during class. Teachers can<br>
+                    hand out assignments in real-time for students to<br>
+                    complete and submit.
                 </p>
                 <div class="tools__deco-hand"><i class="fa-regular fa-hand"></i></div>
             </div>
@@ -483,7 +512,7 @@ session_start();
                 <div class="tools__decor tools__decor--icon-right"><i class="fa-solid fa-person-chalkboard"></i></div>
 
                 <div class="tools__photo">
-                <img src="./uploads/IMAGE/image 12.png" alt="Teacher with books" class="tools__photo-img">
+                    <img src="./uploads/IMAGE/image 12.png" alt="Teacher with books" class="tools__photo-img">
                 </div>
 
                 <div class="tools__decor tools__decor--dots"></div>
@@ -496,48 +525,48 @@ session_start();
 
         <section class="questions">
             <div class="questions__form">
-                    <div class="questions__deco deco-ques--orange"></div>
-                    <div class="questions__deco deco-ques--purpule"></div>
+                <div class="questions__deco deco-ques--orange"></div>
+                <div class="questions__deco deco-ques--purpule"></div>
 
                 <!--icon ture- false-->
-                    <div class="questions__icon-tf icon-ques--false"><i class="fa-regular fa-circle-xmark"></i></div>
-                    <div class="questions__icon-tf icon-ques--true"><i class="fa-regular fa-circle-check"></i></div>
+                <div class="questions__icon-tf icon-ques--false"><i class="fa-regular fa-circle-xmark"></i></div>
+                <div class="questions__icon-tf icon-ques--true"><i class="fa-regular fa-circle-check"></i></div>
 
-                    <div class="question__form-1">
-                        <div class="question__form-button">
-                                Question 1
-                        </div>
-                        <p class="question__form-note">
-                            True or false? This play <br>
-                            takes place in Italy</p>
+                <div class="question__form-1">
+                    <div class="question__form-button">
+                        Question 1
                     </div>
-                     
-                    <div class="questions__image">
-                        <img src="./uploads/IMAGE/Mask Group (2).png" alt="ảnh" class="questions__image-deco">
-                    </div>
+                    <p class="question__form-note">
+                        True or false? This play <br>
+                        takes place in Italy
+                    </p>
+                </div>
+                
+                <div class="questions__image">
+                    <img src="./uploads/IMAGE/Mask Group (2).png" alt="ảnh" class="questions__image-deco">
+                </div>
 
-                    <div class="questions__form-2 ">
-                        <div class="questions__form-icon "><i class="fa-solid fa-plane-departure"></i></div>
-                        <p class="questions__form-2--note ">
+                <div class="questions__form-2 ">
+                    <div class="questions__form-icon "><i class="fa-solid fa-plane-departure"></i></div>
+                    <p class="questions__form-2--note ">
                         Your answer was <br> sent successfully
                         <div class="questions__deco deco-ques--greens"></div>
-                        </p>
-                    </div> 
+                    </p>
+                </div> 
 
-                    <div class="questions__deco deco-ques--pick"></div>
-                    <div class="questions__deco deco-ques--green"></div>
+                <div class="questions__deco deco-ques--pick"></div>
+                <div class="questions__deco deco-ques--green"></div>
             </div>
 
             <div class="questions__content">
                 <h2 class="questions__title">
-                Assessments,<br><span class="questions__title-hight">Quizzes, </span>Tests
+                    Assessments,<br><span class="questions__title-hight">Quizzes, </span>Tests
                 </h2>
                 <p class="questions__desctription">
-                Easily launch live assignments, quizzes, and <br> tests.
-                Student results are automatically entered in<br> the online gradebook.
+                    Easily launch live assignments, quizzes, and <br> tests.
+                    Student results are automatically entered in<br> the online gradebook.
                 </p>
             </div>
-
         </section>
 
         <section class="class-management">
@@ -614,7 +643,6 @@ session_start();
                 <div class="deco-bubble bubble-1"></div>
                 <div class="deco-bubble bubble-2"></div>
                 <div class="deco-bubbles bubble-3"></div>
-
             </div>
         </section>
 
@@ -765,65 +793,65 @@ session_start();
         </div>
 
         <section class="testimonial-section">
-                <div class="testimonial-container">
-                    <div class="testimonial-content">
-                        <div class="line-text">
-                            <div class="line"></div>
-                            <p class="section-tag">TESTIMONIAL</p>
-                        </div>
-                        <h2 class="section-title">What They Say?</h2>
-                        
-                        <p class="description">
-                            TOTC has got more than 100k positive ratings from our users around the world.
-                        </p>
-                        <p class="description">
-                            Some of the students and teachers were greatly helped by the Skillline.
-                        </p>
-                        
-                        <p class="call-to-action">Are you too? Please give your assessment</p>
-                        
-                        <button class="assessment-btn">
-                            Write your assessment 
-                            <span class="arrow-icon">→</span>
-                        </button>
+            <div class="testimonial-container">
+                <div class="testimonial-content">
+                    <div class="line-text">
+                        <div class="line"></div>
+                        <p class="section-tag">TESTIMONIAL</p>
                     </div>
+                    <h2 class="section-title">What They Say?</h2>
+                    
+                    <p class="description">
+                        TOTC has got more than 100k positive ratings from our users around the world.
+                    </p>
+                    <p class="description">
+                        Some of the students and teachers were greatly helped by the Skillline.
+                    </p>
+                    
+                    <p class="call-to-action">Are you too? Please give your assessment</p>
+                    
+                    <button class="assessment-btn">
+                        Write your assessment 
+                        <span class="arrow-icon">→</span>
+                    </button>
+                </div>
 
-                    <div class="testimonial-card-wrapper">
-                        <div class="testimonial-card">
-                            <div class="card-image-container">
-                                <img src="./uploads/IMAGE/Mask Group (3).png" alt="A smiling young woman holding files" class="card-image">
-                                <button class="nav-arrow right">
-                                    <span class="arrow-icon"><i class="fa-solid fa-chevron-right"></i></span>
-                                </button>
-                            </div>
-                            
-                            <div class="card-review">
-                                <p class="review-text">
-                                    "Thank you so much for your help. It's exactly what I've been looking for. You won't regret it. It really saves me time and effort. TOTC is exactly what our business has been lacking."
-                                </p>
+                <div class="testimonial-card-wrapper">
+                    <div class="testimonial-card">
+                        <div class="card-image-container">
+                            <img src="./uploads/IMAGE/Mask Group (3).png" alt="A smiling young woman holding files" class="card-image">
+                            <button class="nav-arrow right">
+                                <span class="arrow-icon"><i class="fa-solid fa-chevron-right"></i></span>
+                            </button>
+                        </div>
+                        
+                        <div class="card-review">
+                            <p class="review-text">
+                                "Thank you so much for your help. It's exactly what I've been looking for. You won't regret it. It really saves me time and effort. TOTC is exactly what our business has been lacking."
+                            </p>
 
-                                <div class="review-footer">
-                                    <div class="user-info">
-                                        <p class="user-name">Gloria Rose</p>
+                            <div class="review-footer">
+                                <div class="user-info">
+                                    <p class="user-name">Gloria Rose</p>
+                                </div>
+                                <div class="tolo_start">
+                                    <div class="rating-stars">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
                                     </div>
-                                    <div class="tolo_start">
-                                        <div class="rating-stars">
-                                            <span class="star">★</span>
-                                            <span class="star">★</span>
-                                            <span class="star">★</span>
-                                            <span class="star">★</span>
-                                            <span class="star">★</span>
-                                        </div>
-                                        <p class="review-source">12 reviews at Yelp</p>
-                                    </div>
+                                    <p class="review-source">12 reviews at Yelp</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="news-section">
+        <section class="news-section">
             <div class="news-header">
                 <h2 class="section-title">Lastest News and Resources</h2>
                 <p class="section-subtitle">See the developments that have occurred to TOTC in the world</p>
@@ -878,6 +906,7 @@ session_start();
                 </div>
             </div>
         </section>
+
         <?php include 'footer.php'; ?>
     </body>
 </html>

@@ -203,3 +203,5 @@ img {
     .total__student, .total__success, .total__questions, .total__chief, .total__years { width: 100%; }
     .total__student-text, .total__success-text, .total__questions-text, .total__chief-text, .total__years-text { padding-left: 0; }
 }
+
+/* drop down header */

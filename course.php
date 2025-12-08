@@ -23,7 +23,54 @@ while ($row = $resultCourses->fetch_assoc()) {
 // đảm bảo đường dẫn đúng với project của bạn
 include 'header.php';
 ?>
+<!-- ========== CSS RIÊNG CHO NÚT CART (đặt trong body cũng được) ========== -->
+<style>
+    /* nhóm giá + cart bên phải */
+    .course-card__footer-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
 
+    /* nút giỏ hàng tròn, màu #00c6d7 */
+    .btn-add-to-cart {
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;
+        border: 2px solid #00c6d7;
+        background: #e5fbfd;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #00c6d7;      /* màu icon */
+        cursor: pointer;
+        padding: 0;
+        outline: none;
+        transition: all 0.2s ease;
+    }
+
+    .btn-add-to-cart:focus {
+        outline: none;
+    }
+
+    .btn-add-to-cart i {
+        font-size: 18px;
+        color: inherit;      /* dùng màu của button */
+    }
+
+    .btn-add-to-cart:hover {
+        background: #00c6d7;
+        color: #ffffff;
+        box-shadow: 0 6px 14px rgba(0, 198, 215, 0.4);
+        transform: translateY(-1px);
+    }
+
+    .btn-add-to-cart:active {
+        transform: translateY(0);
+        box-shadow: 0 3px 8px rgba(0, 198, 215, 0.25);
+    }
+</style>
+<!-- ========== HẾT CSS CART ========== -->
 
     <section class="dashboard-section">
         

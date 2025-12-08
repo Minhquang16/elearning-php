@@ -32,4 +32,24 @@
                     </p>
                 </div>
             </div>
+            <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const profile = document.querySelector('.header-nav__profile');
+    const userBtn = document.querySelector('.header-nav__user');
+
+    if (!profile || !userBtn) return;
+
+    // Toggle khi click vào nút tài khoản
+    userBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        profile.classList.toggle('header-nav__profile--open');
+    });
+
+    // Click ra ngoài thì đóng dropdown
+    document.addEventListener('click', function () {
+        profile.classList.remove('header-nav__profile--open');
+    });
+});
+</script>
+
         </footer>
