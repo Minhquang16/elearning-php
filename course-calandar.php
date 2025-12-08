@@ -149,7 +149,7 @@ function dayCellClass($y,$m,$d,$todayY,$todayM,$todayD){
   <!-- ===== SIDEBAR ===== -->
   <aside>
     <div class="back">
-      <a class="btn" href="#" aria-label="Back">
+      <a class="btn" href="literature-course.php" aria-label="Back">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M15 18l-6-6 6-6"/>
         </svg>

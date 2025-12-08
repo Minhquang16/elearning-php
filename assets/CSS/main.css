@@ -13,9 +13,8 @@
   right: 0;
   z-index: 1000;
   padding: 1.5rem 0;
-  background: var(--primary-color);
+  background: transparent;
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 .header__container{
   max-width: 1200px;
@@ -2779,4 +2778,5 @@
   padding: 4px 10px;
   font-size: 0.7rem;
 }
+
 

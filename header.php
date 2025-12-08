@@ -1,3 +1,10 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -30,6 +37,8 @@
          <link rel="stylesheet" href="assets/CSS/checkout_page.css">
          <link rel="stylesheet" href="assets/CSS/search.css">
          <link rel="stylesheet" href="assets/CSS/literature-course.css">
+         <link rel="stylesheet" href="assets/CSS/course.css">
+
     </head>
     <body>
         <header class="header-nav">
@@ -53,9 +62,20 @@
         </nav>
 
         <div class="header-nav__profile">
-            <img src="https://assets.realmadrid.com/is/image/realmadrid/1330603286208?$Mobile$&fit=wrap&wid=312" alt="Profile Picture" class="header-nav__avatar">
-            <span class="header-nav__name">CR7</span>
-            <span class="header-nav__toggle"><i class="fa-solid fa-chevron-down"></i></span>
-        </div>
+    <?php if (isset($_SESSION['user'])): ?>
+        <img src="uploads/avatar-default.png" class="header-nav__avatar">
+        <span class="header-nav__name">
+            <?= $_SESSION['user']['username']; ?>
+        </span>
+        <a href="controllers/AuthController.php?action=logout" class="header-nav__toggle">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </a>
+
+    <?php else: ?>
+        <a href="login.php" class="header-nav__link btn-login">Login</a>
+        <a href="register.php" class="header-nav__link btn-register">Sign Up</a>
+    <?php endif; ?>
+</div>
+
     </header>
     </body>

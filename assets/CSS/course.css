@@ -933,6 +933,56 @@
     color: #00c6d7; 
 }
 
+/* ==== CART BUTTON ==== */
+.course-card__footer-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* nút cart tròn, đường viền màu #00c6d7 */
+.btn-add-to-cart {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 2px solid #00c6d7;
+    background: #e5fbfd;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #00c6d7;          /* màu icon */
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+/* bỏ style mặc định của button */
+.btn-add-to-cart:focus {
+    outline: none;
+}
+
+/* icon FA bên trong dùng màu của button */
+.btn-add-to-cart i {
+    font-size: 18px;
+    color: inherit;
+}
+
+/* hover: nút fill màu, icon trắng */
+.btn-add-to-cart:hover {
+    background: #00c6d7;
+    color: #ffffff;
+    box-shadow: 0 6px 14px rgba(0, 198, 215, 0.4);
+    transform: translateY(-1px);
+}
+
+/* bấm xuống */
+.btn-add-to-cart:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0, 198, 215, 0.25);
+}
+
+
 .main-footer {
     background-color: #252641;
     color:#fff;
@@ -1100,4 +1150,6 @@
         display: none;
     }
   }
+
+  
   

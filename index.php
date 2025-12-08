@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,8 +12,8 @@
              - initial-scale=1.0: không zoom khi load trang -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <!-- FontAwesome 6.5.2 từ CDN CloudFlare - cung cấp hàng nghìn icon vector miễn phí -->
-        <link rel="stylesheet" href="./assets/CSS/main.css">
-        <link rel="stylesheet" href="./assets/CSS/base.css">
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <link rel="stylesheet" href="./assets/css/base.css">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- Đảm bảo IE sử dụng engine hiện đại nhất (Edge mode) - ít cần thiết hiện tại -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +26,8 @@
         <!-- Google Font Roboto với tất cả weight từ 100-900:
              - display=swap: hiện font fallback trước, sau đó swap sang Roboto
              - Roboto là font sans-serif phổ biến, dễ đọc trên web -->
+        <link rel="stylesheet" href="assets/CSS/footer.css">
+
     </head>
     <body>
         <div class="banner">
@@ -56,11 +61,26 @@
                     </ul>
                 </nav>
                 <!--auth buttons-->
-                <div class="header__auth">
-                    <a href="" class="btn btn--login">Login</a>
-                    <a href="" class="btn btn--singin">Sign Up</a>
-                </div>
-            </div>
+            <div class="header__auth">
+    <?php if (isset($_SESSION['user'])): ?>
+        
+        <div class="header__profile">
+            <img src="uploads/IMAGE/default-avatar.png" class="header__avatar" alt="avatar">
+            <span class="header__username">
+                <?= htmlspecialchars($_SESSION['user']['username']) ?>
+            </span>
+            <a href="controllers/AuthController.php?action=logout" class="btn btn--logout">Logout</a>
+        </div>
+
+    <?php else: ?>
+
+        <a href="login.php" class="btn btn--login">Login</a>
+        <a href="register.php" class="btn btn--singin">Sign Up</a>
+
+    <?php endif; ?>
+</div>
+
+
         </header>
          <!-- HERO SECTION BLOCK -->
             <section class="hero">
@@ -100,14 +120,17 @@
                         <div class="cards">
                             <!-- Student Stats Card -->
                             <div class="card card--stats card--top-right">
-                                <div class="card__icon card__icon--blue">
+                                <a href="course-calandar.php">
+                                    <div class="card__icon card__icon--blue">
                                     <i class="fa-solid fa-calendar-days"></i>
                                 </div>
                                 <div class="card__content">
-                                    <div class="card__number">250k</div>
+                                    <div class="card__number"><a href="course-calandar.php"></a>250k</div>
                                     <div class="card__label">Assisted Student</div>
                                 </div>
                             </div>
+                                </a>
+                                
 
                             <!-- Congratulations Card -->
                             <div class="card card--notification card--middle-right">
@@ -855,7 +878,6 @@
                 </div>
             </div>
         </section>
-
         <?php include 'footer.php'; ?>
     </body>
 </html>
