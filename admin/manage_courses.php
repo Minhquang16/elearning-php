@@ -70,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $target   = $uploadDir . $fileName;
 
             if (move_uploaded_file($_FILES['image_url']['tmp_name'], $target)) {
+                // Lưu dạng uploads/IMAGE/ten-file
                 $imageUrl = $uploadUrlBase . $fileName;
             } else {
                 $errors[] = 'Upload ảnh khóa học thất bại.';
@@ -150,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// ==== LẤY DỮ LIỆU LẤY LIST + FORM EDIT ====
+// ==== LẤY DỮ LIỆU LIST + FORM EDIT ====
 
 // Lấy thông tin để edit nếu có ?edit=
 if (isset($_GET['edit'])) {
@@ -192,341 +193,22 @@ if ($search !== '') {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="../assets/CSS/base.css">
-    <style>
-        :root{
-            --ink:#1f2340;
-            --muted:#7b81a5;
-            --accent:#09c3c8;
-            --accent-soft:#e5fafb;
-            --danger:#ff4d6a;
-            --bg:#f4f6ff;
-            --card:#ffffff;
-            --line:#e1e6ff;
-        }
-        body{
-            margin:0;
-            font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background:var(--bg);
-            color:var(--ink);
-        }
-        .layout{
-            display:grid;
-            grid-template-columns: 240px 1fr;
-            min-height:100vh;
-        }
-        .sidebar{
-            background:#10132f;
-            color:#fff;
-            padding:20px 18px;
-            display:flex;
-            flex-direction:column;
-            gap:24px;
-        }
-        .sidebar__brand{
-            display:flex;
-            align-items:center;
-            gap:10px;
-            font-weight:700;
-            font-size:18px;
-        }
-        .sidebar__brand-icon{
-            width:32px;
-            height:32px;
-            border-radius:50%;
-            display:grid;
-            place-items:center;
-            background:linear-gradient(135deg,#0ee3f0,#09c3c8);
-            color:#fff;
-        }
-        .sidebar__menu{
-            margin-top:10px;
-            display:flex;
-            flex-direction:column;
-            gap:8px;
-        }
-        .sidebar__link{
-            display:flex;
-            align-items:center;
-            gap:10px;
-            padding:9px 10px;
-            border-radius:10px;
-            font-size:14px;
-            color:#d4ddff;
-            text-decoration:none;
-        }
-        .sidebar__link:hover{
-            background:rgba(255,255,255,.07);
-        }
-        .sidebar__link--active{
-            background:#fff;
-            color:#10132f;
-        }
-        .sidebar__footer{
-            margin-top:auto;
-            font-size:12px;
-            color:#757bb0;
-        }
 
-        .main{
-            padding:20px 26px 40px;
-        }
-        .main__header{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            margin-bottom:20px;
-        }
-        .main__title{
-            font-size:22px;
-            font-weight:700;
-        }
-        .main__subtitle{
-            font-size:13px;
-            color:var(--muted);
-        }
-        .admin-user{
-            display:flex;
-            align-items:center;
-            gap:10px;
-        }
-        .admin-user__avatar{
-            width:34px;
-            height:34px;
-            border-radius:50%;
-            object-fit:cover;
-            border:2px solid rgba(9,195,200,.3);
-        }
-        .admin-user__name{
-            font-size:13px;
-            font-weight:500;
-        }
-
-        .grid{
-            display:grid;
-            grid-template-columns: 3fr 2fr;
-            gap:20px;
-            align-items:flex-start;
-        }
-        .card{
-            background:var(--card);
-            border-radius:18px;
-            border:1px solid var(--line);
-            box-shadow:0 16px 40px rgba(22,30,84,.04);
-        }
-        .card--list{padding:18px 18px 10px;}
-        .card--form{padding:18px 18px 20px;}
-
-        .card__header{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            margin-bottom:12px;
-        }
-        .card__title{
-            font-size:16px;
-            font-weight:600;
-        }
-        .tag{
-            font-size:11px;
-            padding:4px 10px;
-            border-radius:999px;
-            background:var(--accent-soft);
-            color:#059197;
-        }
-
-        .search-bar{
-            display:flex;
-            gap:8px;
-            margin-bottom:10px;
-        }
-        .input, textarea, select{
-            font:inherit;
-            border-radius:10px;
-            border:1px solid #dbe2ff;
-            padding:9px 11px;
-            width:100%;
-            outline:none;
-            background:#f9fbff;
-        }
-        .input:focus, textarea:focus, select:focus{
-            border-color:#9fb4ff;
-            box-shadow:0 0 0 3px rgba(159,180,255,.25);
-            background:#fff;
-        }
-        .btn{
-            border:none;
-            border-radius:999px;
-            padding:9px 16px;
-            font-size:13px;
-            cursor:pointer;
-            font-weight:500;
-            display:inline-flex;
-            align-items:center;
-            gap:6px;
-        }
-        .btn--primary{
-            background:linear-gradient(135deg,#0ee3f0,#09c3c8);
-            color:#fff;
-            box-shadow:0 10px 24px rgba(9,195,200,.4);
-        }
-        .btn--outline{
-            background:#fff;
-            border:1px solid #dbe2ff;
-            color:#4a4f86;
-        }
-        .btn--danger{
-            background:var(--danger);
-            color:#fff;
-        }
-        .btn--xs{
-            padding:5px 10px;
-            font-size:11px;
-            border-radius:999px;
-        }
-
-        table{
-            width:100%;
-            border-collapse:collapse;
-            font-size:13px;
-        }
-        th,td{
-            padding:8px 6px;
-            border-bottom:1px solid #edf0ff;
-            vertical-align:middle;
-        }
-        th{
-            text-align:left;
-            font-size:11px;
-            text-transform:uppercase;
-            letter-spacing:.06em;
-            color:#8a8fb7;
-        }
-        tr:last-child td{
-            border-bottom:none;
-        }
-        .course-thumb{
-            width:48px;
-            height:36px;
-            border-radius:8px;
-            object-fit:cover;
-        }
-        .course-title{
-            font-weight:500;
-        }
-        .pill-status{
-            padding:3px 8px;
-            border-radius:999px;
-            font-size:11px;
-        }
-        .pill-status--on{
-            background:#e4fbf3;
-            color:#0e9f6e;
-        }
-        .pill-status--off{
-            background:#ffe8ef;
-            color:#de365c;
-        }
-        .price{
-            font-weight:600;
-        }
-        .price--old{
-            text-decoration:line-through;
-            color:#9ca3c8;
-            font-weight:400;
-            font-size:12px;
-        }
-
-        .msg{
-            margin-bottom:10px;
-            font-size:13px;
-            padding:8px 10px;
-            border-radius:10px;
-        }
-        .msg--success{
-            background:#e4fbf3;
-            color:#047857;
-        }
-        .msg--error{
-            background:#ffe8ef;
-            color:#b91c1c;
-        }
-
-        .form-grid{
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:10px 14px;
-            margin-top:6px;
-        }
-        .form-grid .full{
-            grid-column:1/-1;
-        }
-        label{
-            font-size:12px;
-            font-weight:500;
-            color:#5d648f;
-            margin-bottom:4px;
-            display:block;
-        }
-        textarea{
-            min-height:80px;
-            resize:vertical;
-        }
-        .form-actions{
-            margin-top:12px;
-            display:flex;
-            justify-content:flex-end;
-            gap:8px;
-        }
-
-        @media (max-width: 1024px){
-            .layout{
-                grid-template-columns: 1fr;
-            }
-            .sidebar{
-                display:none;
-            }
-        }
-        @media (max-width: 900px){
-            .grid{
-                grid-template-columns:1fr;
-            }
-        }
-    </style>
+    <!-- CSS chung của admin (sidebar + layout) -->
+    <link rel="stylesheet" href="../assets/CSS/_sidebar.css">
+    <!-- CSS riêng cho manage courses -->
+    <link rel="stylesheet" href="../assets/CSS/admin-manage-courses.css">
 </head>
 <body>
-<div class="layout">
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-        <div class="sidebar__brand">
-            <div class="sidebar__brand-icon">
-                <i class="fa-solid fa-graduation-cap"></i>
-            </div>
-            Dev Alpha<br>Admin
-        </div>
 
-        <nav class="sidebar__menu">
-            <a href="dashboard.php" class="sidebar__link">
-                <i class="fa-solid fa-chart-line"></i> Dashboard
-            </a>
-            <a href="manage_courses.php" class="sidebar__link sidebar__link--active">
-                <i class="fa-solid fa-book"></i> Manage Courses
-            </a>
-            <a href="manage_users.php" class="sidebar__link">
-                <i class="fa-solid fa-users"></i> Manage Users
-            </a>
-            <a href="../order.php" class="sidebar__link">
-                <i class="fa-solid fa-receipt"></i> Orders
-            </a>
-        </nav>
+<div class="admin-layout">
+    <?php
+        $activePage = 'courses';
+        include __DIR__ . '/_sidebar.php';
+    ?>
 
-        <div class="sidebar__footer">
-            &copy; <?php echo date('Y'); ?> Dev Alpha
-        </div>
-    </aside>
-
-    <!-- MAIN -->
     <main class="main">
+        <!-- PHẦN NỘI DUNG TRANG MANAGE COURSES -->
         <header class="main__header">
             <div>
                 <div class="main__title">Manage Courses</div>
@@ -598,8 +280,30 @@ if ($search !== '') {
                                 <tr>
                                     <td>
                                         <div style="display:flex;align-items:center;gap:8px;">
-                                            <?php if (!empty($c['image_url'])): ?>
-                                                <img src="../<?php echo htmlspecialchars($c['image_url']); ?>"
+                                            <?php
+                                            // ==== LẤY ẢNH CHO LIST ====
+                                            // Ưu tiên cột có dữ liệu thật sự (không rỗng)
+                                            $rawImage = '';
+                                            if (!empty($c['image_url'])) {
+                                                $rawImage = $c['image_url'];
+                                            } elseif (!empty($c['image'])) {
+                                                $rawImage = $c['image'];
+                                            }
+
+                                            $imgSrc = '';
+                                            if ($rawImage !== '') {
+                                                // Nếu DB lưu dạng 'uploads/...' hoặc URL http(s)
+                                                if (preg_match('#^(uploads/|http)#i', $rawImage)) {
+                                                    $imgSrc = '../' . ltrim($rawImage, '/');
+                                                } else {
+                                                    // Nếu chỉ là tên file => thêm thư mục uploads/IMAGE/
+                                                    $imgSrc = '../uploads/IMAGE/' . ltrim($rawImage, '/');
+                                                }
+                                            }
+                                            ?>
+
+                                            <?php if ($imgSrc !== ''): ?>
+                                                <img src="<?php echo htmlspecialchars($imgSrc); ?>"
                                                      class="course-thumb" alt="">
                                             <?php else: ?>
                                                 <div class="course-thumb"
@@ -607,6 +311,7 @@ if ($search !== '') {
                                                     <i class="fa-solid fa-image" style="color:#9ca3c8;"></i>
                                                 </div>
                                             <?php endif; ?>
+
                                             <div>
                                                 <div class="course-title">
                                                     <?php echo htmlspecialchars($c['title']); ?>
@@ -743,10 +448,29 @@ if ($search !== '') {
                             <label for="image_url">Course image</label>
                             <input type="file" id="image_url" name="image_url"
                                    accept="image/*" class="input">
-                            <?php if (!empty($editingCourse['image_url'])): ?>
+                            <?php
+                            // ==== ẢNH CURRENT TRONG FORM EDIT ====
+                            $editRawImage = '';
+                            if (!empty($editingCourse['image_url'])) {
+                                $editRawImage = $editingCourse['image_url'];
+                            } elseif (!empty($editingCourse['image'])) {
+                                $editRawImage = $editingCourse['image'];
+                            }
+
+                            $editImgHref  = '';
+                            if ($editRawImage !== '') {
+                                if (preg_match('#^(uploads/|http)#i', $editRawImage)) {
+                                    $editImgHref = '../' . ltrim($editRawImage, '/');
+                                } else {
+                                    $editImgHref = '../uploads/IMAGE/' . ltrim($editRawImage, '/');
+                                }
+                            }
+                            ?>
+
+                            <?php if ($editImgHref !== ''): ?>
                                 <div style="margin-top:6px;font-size:12px;color:#7b81a5;">
                                     Current:
-                                    <a href="../<?php echo htmlspecialchars($editingCourse['image_url']); ?>"
+                                    <a href="<?php echo htmlspecialchars($editImgHref); ?>"
                                        target="_blank">View image</a>
                                 </div>
                             <?php endif; ?>
@@ -783,5 +507,6 @@ if ($search !== '') {
         </div>
     </main>
 </div>
+
 </body>
 </html>
