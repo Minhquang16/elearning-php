@@ -8,12 +8,13 @@ $author = [
 $post = [
     "title"   => "Why Swift UI Should Be on the Radar of Every Mobile Developer",
     "hero"    => "uploads/IMAGE/group236 blog detai.png",
-    "tags"    => ["affordable", "stunning", "making", "modbrawns"],
+    "tags"    => ["affordable", "stunning", "making", "beginner"],
     "content" => [
-        "TOTC is a platform that allows educators to create online classes whereby they can store the course materials online; manage assignments, quizzes and exams; monitor due dates; grade results and provide students with feedback all in one place.",
-        "TOTC is a platform that allows educators to create online classes whereby they can store the course materials online; manage assignments, quizzes and exams; monitor due dates; grade results and provide students with feedback all in one place. TOTC is a platform that allows educators to create online classes whereby they can store the course materials online.",
-        "TOTC is a platform that allows educators to create online classes whereby they can store the course materials online; manage assignments, quizzes and exams; monitor due dates; grade results and provide students with feedback all in one place.",
-        "TOTC is a platform that allows educators to create online classes whereby they can store the course materials online; manage assignments, quizzes and exams; monitor due dates; grade results and provide students with feedback all in one place."
+        "Dev Alpha is an online learning platform built for developers of all levels.
+        We provide high-quality programming courses designed by industry experts to help learners build real skills, real projects, and real careers.",
+        "Empower beginners and developers worldwide to learn programming faster and easier through structured courses, hands-on projects, and personalized learning support.",
+        "To become one of the most trusted platforms for programming education, helping millions of learners start and grow their careers in technology.",
+        "We are a passionate team of developers, instructors, and tech enthusiasts dedicated to creating the best learning experience for you."
     ]
 ];
 ?>
@@ -176,20 +177,20 @@ $post = [
                 <a href="#" class="link-small">See all</a>
             </div>
             <div class="related-grid">
-                <?php for ($i = 0; $i < 2; $i++): ?>
+                
                     <article class="related-card">
                         <div class="related-media">
                             <img src="uploads/IMAGE/Rectangle 23.png" alt="Related">
                         </div>
                         <h3 class="related-title">
-                            Class adds $30 million to its balance sheet for a Zoom-friendly edtech solution
+                        How Dev Alpha Builds a Better Learning Experience for Future Developers
                         </h3>
                         <div class="author-row">
                             <img src="uploads/IMAGE/Group 40 (1).png" alt="Lina">
-                            <span>Lina</span>
+                            <span>Mai</span>
                         </div>
                         <p class="related-desc">
-                            Class, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...
+                        At Dev Alpha, we focus on structured learning paths, high-quality lessons, and hands-on projects. Discover how our learning approach helps beginners grow faster and build real programming skills…
                         </p>
                         <div class="related-footer">
                             <a href="#" class="link-small">Read more</a>
@@ -199,7 +200,30 @@ $post = [
                             </div>
                         </div>
                     </article>
-                <?php endfor; ?>
+
+                    <article class="related-card">
+                        <div class="related-media">
+                            <img src="uploads/IMAGE/Rectangle 32 (1).png" alt="Related">
+                        </div>
+                        <h3 class="related-title">
+                        Behind the Scenes: Meet the Team Shaping Dev Alpha’s Courses
+                        </h3>
+                        <div class="author-row">
+                            <img src="uploads/IMAGE/Group 40 (1).png" alt="Lina">
+                            <span>Mr. Quyen</span>
+                        </div>
+                        <p class="related-desc">
+                        From senior developers to passionate instructors, our team works every day to craft engaging and industry-relevant programming content for learners worldwide…
+                        </p>
+                        <div class="related-footer">
+                            <a href="#" class="link-small">Read more</a>
+                            <div class="view-row">
+                                <span class="view-icon"></span>
+                                <span>20000</span>
+                            </div>
+                        </div>
+                    </article>
+                
             </div>
             <div class="slider-controls">
                 <button class="slider-btn">&#8249;</button>
