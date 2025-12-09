@@ -118,7 +118,9 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                                 Online is now <br> much easier
                             </h1>
                             <p class="hero__description">
-                                TOTC is an interesting platform that will teach <br> you in more an interactive way
+                            DevAlpha helps you master programming through <br> hands-on lessons,
+                            real projects, and expert <br> guidance—designed for beginners 
+                            and future developers.
                             </p>
                         </div>
 
@@ -195,8 +197,9 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                     <div class="success__content">
                         <h2 class="success__title">Our Success</h2>
                         <p class="success__description">
-                            Ornare id fames interdum porttitor nulla turpis etiam. Diam vitae sollicitudin at nec 
-                            <br>nam et pharetra gravida. Adipiscing a quis ultrices eu ornare tristique vel nisl orci.
+                        We are proud to have supported thousands of learners in building strong foundations in programming.<br>
+Through practical training, real-world projects, and guidance from industry experts,<br>
+we help students transform their passion for coding into real opportunities.
                         </p>
                     </div>
                 </div>
@@ -255,8 +258,9 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                         </span>
                     </h2>
                     <p class="software__description">
-                        TOTC is one powerful online software suite that combines all the tools
-                        <br> needed to run a successful school or office.
+                    We provide a complete learning ecosystem that gives you everything you need to master programming —<br>
+                    from beginner lessons to advanced projects, mentoring, career support, and a thriving community of learners.<br>
+                    Our platform is designed to help you learn faster, stay motivated, and achieve real results.
                     </p>
                 </div>
             </div>
@@ -274,10 +278,9 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                             Online Billing,<br> Invoicing, & Contracts
                         </div>
                         <div class="block__description ">
-                            Simple and secure control of your<br>
-                            organization's financial and legal<br>
-                            transactions. Send customized<br>
-                            invoices and contracts
+                        Stay organized with a clean, intuitive <br> dashboard
+                        that tracks your lessons, <br> progress, and upcoming tasks.<br>
+                        Everything you need is in one place
                         </div>
                     </div>
                 </div>
@@ -290,10 +293,9 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                             Easy Scheduling & <br>Attendance Tracking
                         </div>
                         <div class="block__description ">
-                            Schedule and reserve classrooms at<br>
-                            one campus or multiple campuses.<br>
-                             Keep detailed records of student <br>
-                             attendance
+                        Join live sessions, book mentoring <br> appointments,
+                        and manage your <br> learning schedule with ease.<br>
+                        Never miss a class again.
                         </div>
                     </div>
                 </div>
@@ -306,10 +308,9 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                             Customer Tracking
                         </div>
                         <div class="block__description ">
-                            Automate and track emails to<br>
-                            individuals or groups. Skilline's<br>
-                            built-in system helps organize<br>
-                            your organization 
+                        Monitor your performance with <br> real-time tracking,
+                        quiz results, <br> and project milestones.
+                        Get personalized insights to improve faster.
                         </div>
                     </div>
                 </div>
@@ -326,9 +327,9 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                         </span>
                     </h2>
                     <p class="alpha__description">
-                        ALPHA is a platform that allows educators to create online classes whereby they can<br>
-                        store the course materials online; manage assignments, quizzes and exams; monitor<br>
-                        due dates; grade results and provide students with feedback all in one place.<br>
+                    ALPHA offers a complete coding–learning platform where you can study C, C++, PHP,<br>
+                    Python, Java, and more through structured lessons, hands-on projects, real-time guidance,<br>
+                    and progress tracking — all in one powerful online system.
                     </p>
                 </div>
             </div>
@@ -359,10 +360,11 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                         <span class="highlight-blue">you can do with TOTC</span>
                     </h2>
                     <p class="feature-description">
-                        TOTC's school management software helps traditional <br> 
-                        and online schools manage scheduling, attendance,<br>
-                        payments and virtual classrooms all in one secure cloud-<br>
-                        based system.
+                    ALPHA gives you a full online coding experience with structured lessons,<br>
+                    live sessions, hands-on projects, and personalized support.<br>
+                    Whether you're learning C, C++, PHP, Python, or Java, you can study anytime,<br>
+                    anywhere, with the same effectiveness as an in-person class — all powered<br>
+                    by our modern cloud-based platform.
                     </p>
                     <a href="#" class="learn-more">Learn more</a>
                 </div>
@@ -383,7 +385,8 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                     <span class="section-headers__title-highlight">Features</span>
                 </h2>
                 <p class="section-headers__subtitle">
-                    This very extraordinary feature, can make learning activities more efficient
+                This set of powerful features makes learning programming<br>
+                easier, faster, and more engaging.
                 </p>
             </div>
         </section>
@@ -470,21 +473,21 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                     <li class="virtuals__item">
                         <div class="virtuals__icon"><i class="fa-solid fa-grip"></i></div>
                         <p class="virtuals__text">
-                            Teachers don't get lost in the grid view <br> and have a dedicated Podium space.
+                        Clear, distraction-free layout that helps learners <br> focus on coding lessons and projects.
                         </p>
                     </li>
 
                     <li class="virtuals__item">
                         <div class="virtuals__icon"><i class="fa-solid fa-layer-group"></i></div>
                         <p class="virtuals__text">
-                            TA's and presenters can be moved to <br>the front of the class.
+                        Instructors and mentors can highlight key <br> explanations during live sessions.
                         </p>
                     </li>
 
                     <li class="virtuals__item">
                         <div class="virtuals__icon"><i class="fa-solid fa-user-group"></i></div>
                         <p class="virtuals__text">
-                            Teachers can easily see all students <br>and class data at one time.
+                        Students can easily follow along, view code examples, <br>and track class progress in real time.
                         </p>
                     </li>
                 </ul>
@@ -498,10 +501,10 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                     For Teachers <br>And Learners
                 </h2>
                 <p class="tools__description">
-                    Class has a dynamic set of teaching tools built to<br>
-                    be deployed and used during class. Teachers can<br>
-                    hand out assignments in real-time for students to<br>
-                    complete and submit.
+                ALPHA provides a powerful set of coding tools <br> designed to support both learners
+                and instructors. <br> Students can practice code in real-time,<br> receive instant feedback,
+                and submit projects easily, <br> while mentors can guide, review, and track progress<br>
+                directly on the platform.
                 </p>
                 <div class="tools__deco-hand"><i class="fa-regular fa-hand"></i></div>
             </div>
@@ -537,8 +540,7 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                         Question 1
                     </div>
                     <p class="question__form-note">
-                        True or false? This play <br>
-                        takes place in Italy
+                    True or false? <br>Arrays in C have fixed size.
                     </p>
                 </div>
                 
@@ -563,8 +565,10 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                     Assessments,<br><span class="questions__title-hight">Quizzes, </span>Tests
                 </h2>
                 <p class="questions__desctription">
-                    Easily launch live assignments, quizzes, and <br> tests.
-                    Student results are automatically entered in<br> the online gradebook.
+                Improve your programming skills with interactive <br> quizzes, coding challenges,
+                and real-time tests designed<br>for languages like C, C++, PHP, Python, and Java.<br>
+                All results are automatically evaluated and recorded, <br>helping you track your
+                progress and <br> identify areas to improve..
                 </p>
             </div>
         </section>
@@ -577,10 +581,13 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                     Tools for Educators
                 </h2>
                 <p class="management-description">
-                    Class provides tools to help run and manage the class <br>
-                    such as Class Roster, Attendance, and more. With the <br>
-                    Gradebook, teachers can review and grade tests and <br>
-                    quizzes in real-time.
+                ALPHA provides powerful tools to help instructors <br> 
+                manage their coding classes effortlessly. <br> 
+                Track student progress, monitor completed lessons, <br> 
+                review code submissions, and grade quizzes or challenges <br>
+                in real time. The integrated GradeBook gives a clear <br> 
+                overview of each learner’s performance across all <br>
+                programming modules.
                 </p>
             </div>
 
@@ -710,12 +717,13 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
             <div class="text-content">
                 <h2 class="discussion-title">
                     One-on-One <br>
-                    <span class="highlight">Discussions</span>
+                    <span class="highlight">Coding Support</span>
                 </h2>
                 <p class="discussion-description">
-                    Teachers and teacher assistants can talk with <br>
-                    students privately without leaving the Zoom <br>
-                    environment.
+                Get private, personalized help from mentors  <br> 
+                whenever you need it. Discuss your code, fix <br> 
+                errors together, review assignments, and receive<br>
+                direct guidance without leaving the learning platform.
                 </p>
             </div>
         </section>
@@ -729,7 +737,8 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
         <div class="container__course">
             <div class="container__course-header">
                 <div class="container__course-title">Explore Course</div>
-                <p class="course__subtitle">Ut sed eros finibus, placerat orci id, dapibus.</p>
+                <p class="course__subtitle">Discover practical programming courses designed to help you master C, C++,<br>
+                PHP, Python, Java, and more — from beginner to advanced levels.</p>
             </div>
 
             <section class="course-section">
@@ -745,25 +754,25 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                     <div class="pills-wrapper">
                         <div class="pills-container" id="pills-container">
                             <div class="pill-outer pill" data-course="course1">
-                                <div class="pill-inner-green"><div class="pill-orange"><div class="pill-text">Ut Sed Eros</div></div></div>
+                                <div class="pill-inner-green"><div class="pill-orange"><div class="pill-text">C Programming</div></div></div>
                             </div>
                             <div class="pill-outer pill" data-course="course2">
-                                <div class="pill-inner-green"><div class="pill-pink"><div class="pill-text">Coure - Css</div></div></div>
+                                <div class="pill-inner-green"><div class="pill-pink"><div class="pill-text">C++ OOP</div></div></div>
                             </div>
                             <div class="pill-outer pill" data-course="course3">
-                                <div class="pill-inner-green"><div class="pill-brown"><div class="pill-text">Quistelus Advieront</div></div></div>
+                                <div class="pill-inner-green"><div class="pill-brown"><div class="pill-text">PHP Fundamentals</div></div></div>
                             </div>
                             <div class="pill-outer pill" data-course="course4">
-                                <div class="pill-inner-green"><div class="pill-yellow"><div class="pill-text">Cur Socion Sit</div></div></div>
+                                <div class="pill-inner-green"><div class="pill-yellow"><div class="pill-text">HTML & CSS Basics</div></div></div>
                             </div>
                             <div class="pill-outer pill" data-course="course5">
-                                <div class="pill-inner-green"><div class="pill-purple"><div class="pill-text">Vestilum IT Ibique</div></div></div>
+                                <div class="pill-inner-green"><div class="pill-purple"><div class="pill-text">JavaScript for Beginners</div></div></div>
                             </div>
                             <div class="pill-outer pill" data-course="course6">
-                                <div class="pill-inner-green"><div class="pill-blue"><div class="pill-text">Ut Sed Eleos</div></div></div>
+                                <div class="pill-inner-green"><div class="pill-blue"><div class="pill-text">Python Core</div></div></div>
                             </div>
                             <div class="pill-outer pill" data-course="course7">
-                                <div class="pill-inner-green"><div class="pill-green--dark"><div class="pill-text">Vestlibum IT Ibisque</div></div></div>
+                                <div class="pill-inner-green"><div class="pill-green--dark"><div class="pill-text">Java Programming</div></div></div>
                             </div>
                         </div>
                     </div>
