@@ -1,12 +1,12 @@
 // Dữ liệu khóa học
 const coursesData = {
-    course1: { image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400", badge: "LOREM IPSUM", title: "Ut Sed Eros - Khóa học nấu ăn", description: "Học cách nấu những món ăn ngon và bổ dưỡng từ các đầu bếp chuyên nghiệp.", rating: 5, price: "$ 450" },
-    course2: { image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400", badge: "LOREM IPSUM", title: "Ormartur Sagittis - Món tráng miệng", description: "Khám phá thế giới bánh ngọt và các món tráng miệng hấp dẫn.", rating: 4, price: "$ 380" },
-    course3: { image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400", badge: "COOKING PRO", title: "Quistelus Advieront - Ẩm thực Á", description: "Thành thạo các món ăn Á Đông với hương vị đậm đà truyền thống.", rating: 5, price: "$ 520" },
-    course4: { image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400", badge: "ITALIAN STYLE", title: "Cur Socion Sit - Pizza & Pasta", description: "Học cách làm pizza và pasta đúng chuẩn Ý từ các bậc thầy.", rating: 5, price: "$ 490" },
-    course5: { image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400", badge: "HEALTHY FOOD", title: "Vestilum IT Ibique - Ăn sạch", description: "Khóa học về dinh dưỡng và cách chế biến thực phẩm lành mạnh.", rating: 4, price: "$ 410" },
-    course6: { image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400", badge: "SEAFOOD", title: "Ut Sed Eleos - Hải sản cao cấp", description: "Nấu các món hải sản tươi ngon với kỹ thuật chuyên nghiệp.", rating: 5, price: "$ 580" },
-    course7: { image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400", badge: "BBQ MASTER", title: "Vestlibum IT Ibisque - Nướng BBQ", description: "Trở thành chuyên gia nướng với các công thức BBQ đỉnh cao.", rating: 5, price: "$ 460" },
+    course1: { image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400", badge: "Course C", title: "C Programming - Complete Beginner Course", description: "Learn the core concepts of C through simple, hands-on exercises and mini projects.", rating: 5, price: "$ 450" },
+    course2: { image: "./uploads/IMAGE/C++.png", badge: "Course C++", title: "C++ OOP – Object-Oriented Programming", description: "Get started with object-oriented programming in C++ using clear, practical examples.", rating: 4, price: "$ 380" },
+    course3: { image: "./uploads/IMAGE/PHP.png", badge: "Course PHP", title: "PHP Fundamentals", description: "Learn how to build dynamic websites and basic back-end logic with PHP.", rating: 5, price: "$ 520" },
+    course4: { image: "./uploads/IMAGE/CSS.png", badge: "Course CSS", title: "HTML & CSS Basics", description: "Master the foundations of modern web page layout with HTML and CSS.", rating: 5, price: "$ 490" },
+    course5: { image: "./uploads/IMAGE/Java.png", badge: "Course Java", title: "JavaScript for Beginners", description: "Discover how to make your web pages interactive using beginner-friendly JavaScript.", rating: 4, price: "$ 410" },
+    course6: { image: "./uploads/IMAGE/py.jpeg", badge: "Course Py" , title: "Python Core", description: "Learn Python from scratch with clear explanations and practical coding tasks.", rating: 5, price: "$ 580" },
+    course7: { image: "./uploads/IMAGE/Java1.png", badge: "Course JavaPR", title: "Java Programming", description: "Build a solid Java foundation through real-world examples and guided exercises.", rating: 5, price: "$ 460" },
 };
 
 // Hàm tạo sao đánh giá

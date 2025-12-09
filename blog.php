@@ -12,10 +12,9 @@
                     Why Swift UI Should Be on the Radar of Every Mobile Developer
                 </h1>
                 <p class="hero-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sitamet,
-                    consectetur adipiscing elit, sed do eiusmod tempor.
+                With modern tools, online courses, and AI-powered assistants, beginners can learn C, C++, Python, JavaScript, and more faster than ever before.
+
                 </p>
-                <button class="btn-primary">Start learning now</button>
             </div>
             <div class="hero-media">
                 <img src="uploads/IMAGE/Group 40 (1).png" alt="Hero">
@@ -32,7 +31,7 @@
                 $reading = ["UX/UI", "React", "PHP", "JavaScript"];
                 foreach ($reading as $item): ?>
                     <div class="reading-card">
-                        <img src="uploads/IMAGE/Group 251.png" alt="<?= $item ?>">
+                        <img src="./uploads/IMAGE/it.jpeg" alt="<?= $item ?>">
                         <div class="reading-card-label">
                             <span class="reading-pill"><?= $item ?></span>
                         </div>
@@ -56,14 +55,14 @@
                             <img src="uploads/IMAGE/Rectangle 23.png" alt="Related">
                         </div>
                         <h3 class="related-title">
-                            Class adds $30 million to its balance sheet for a Zoom-friendly edtech solution
+                        Why Cybersecurity & Data Science Are Becoming Essential Skills for Modern Developers
                         </h3>
                         <div class="author-row">
                             <img src="uploads/IMAGE/Group 40 (1).png" alt="Lina">
                             <span>Lina</span>
                         </div>
                         <p class="related-desc">
-                            Class, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...
+                        With cyber threats increasing and data becoming the core of every business, developers who understand...
                         </p>
                         <div class="related-footer">
                             <a href="#" class="link-small">Read more</a>
@@ -93,21 +92,21 @@
                 <?php for ($i = 0; $i < 4; $i++): ?>
                     <article class="marketing-card">
                         <div class="marketing-media">
-                            <img src="uploads/IMAGE/Rectangle 33.png" alt="Course">
+                            <img src="uploads/IMAGE/data.jpeg" alt="Course">
                         </div>
                         <div class="marketing-body">
                             <div class="meta-row">
-                                <span>Design</span>
+                                <span>IT</span>
                                 <span>3 Month</span>
                             </div>
-                            <h3 class="marketing-title">AWS Certified solutions Architect</h3>
+                            <h3 class="marketing-title">Top 5 Data Analysis Techniques Every Security Engineer Should Know</h3>
                             <p class="marketing-desc">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                            ML models can detect abnormal login attempts, phishing patterns, and malware signatures automatically without human intervention.
                             </p>
                             <div class="marketing-footer">
                                 <div class="marketing-author">
                                     <img src="uploads/IMAGE/image 12.png" alt="Lina">
-                                    <span>Lina</span>
+                                    <span>YONR</span>
                                 </div>
                                 <div>
                                     <span class="price-old">$100</span>
