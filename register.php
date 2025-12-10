@@ -27,7 +27,8 @@ session_start();
         <div class="col-lg-6">
             <div class="auth-box">
 
-                <h5 class="text-center">Welcome to lorem..!</h5>
+                <h5 class="text-center">Welcome to CodeAcademy..!
+                </h5>
 
                 <div class="toggle-btn-group mt-3 mb-4">
                     <a href="login.php" class="toggle-btn">Login</a>
@@ -35,7 +36,8 @@ session_start();
                 </div>
 
                 <p class="text-muted text-center">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Join thousands of learners and start mastering programming with guided lessons, hands-on projects, and a clear learning path designed to help you grow.
+
                 </p>
 
                 <!-- REGISTER FORM (Gửi đến Controller) -->

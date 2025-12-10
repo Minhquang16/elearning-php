@@ -34,7 +34,8 @@ if (isset($_SESSION['user'])) {
         <div class="col-lg-6">
             <div class="auth-box">
 
-                <h5 class="text-center">Welcome to lorem..!</h5>
+                <h5 class="text-center">Welcome to CodeAcademy..!
+                </h5>
 
                 <!-- Toggle Buttons -->
                 <div class="toggle-btn-group mt-3 mb-4">
@@ -43,7 +44,7 @@ if (isset($_SESSION['user'])) {
                 </div>
 
                 <p class="text-muted text-center">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Learn programming from beginner to advanced with clear learning paths, hands-on projects, and practical guidance designed to help you become a job-ready developer.
                 </p>
 
                 <form action="controllers/AuthController.php?action=login" method="POST">

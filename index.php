@@ -234,8 +234,8 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
             </div>
 
         <?php else: ?>
-            <a href="login.php" class="header-nav__link btn-login">Login</a>
-            <a href="register.php" class="header-nav__link btn-register">Sign Up</a>
+            <a href="login.php" class="btn btn--login">Login</a>
+            <a href="register.php" class="btn btn--singin">Sign Up</a>
         <?php endif; ?>
     </div>
             </div>
