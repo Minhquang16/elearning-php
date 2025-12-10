@@ -55,7 +55,108 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
     width: 40px;
     height: 40px;
 }
+    /* ==== PROFILE DROPDOWN ==== */
+    .header-nav__profile {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
 
+    .header-nav__user {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(0,0,0,0.03);
+        background: #ffffff;
+        cursor: pointer;
+        outline: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .header-nav__user:hover {
+        box-shadow: 0 6px 14px rgba(0,0,0,0.07);
+        transform: translateY(-1px);
+        border-color: rgba(0,198,215,0.2);
+    }
+
+    .header-nav__avatar {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .header-nav__name {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .header-nav__caret {
+        font-size: 12px;
+        color: #999;
+    }
+
+    .header-nav__dropdown {
+        position: absolute;
+        right: 0;
+        top: calc(100% + 8px);
+        min-width: 190px;
+        background: #ffffff;
+        border-radius: 14px;
+        border: 1px solid #e4ebff;
+        box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+        padding: 6px 0;
+        opacity: 0;
+        transform: translateY(6px);
+        pointer-events: none;
+        transition: opacity 0.16s ease, transform 0.16s ease;
+        z-index: 1500;
+    }
+
+    .header-nav__profile--open .header-nav__dropdown {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .header-nav__dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 14px;
+        font-size: 14px;
+        color: #333;
+        text-decoration: none;
+        transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .header-nav__dropdown-item i {
+        width: 18px;
+        text-align: center;
+        color: #00c6d7;
+    }
+
+    .header-nav__dropdown-item:hover {
+        background: #f5fbff;
+        color: #111827;
+    }
+
+    .header-nav__dropdown-item--logout i {
+        color: #f97373;
+    }
+    .header-nav__dropdown-item--logout:hover {
+        background: #fff0f0;
+    }
+
+    .header-nav__divider {
+        border: 0;
+        border-top: 1px solid #edf2ff;
+        margin: 4px 0;
+    }
         </style>
         <div class="banner">
         <header class="header">
@@ -89,20 +190,51 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                 </nav>
 
                 <!--auth buttons-->
-                <div class="header__auth">
-                    <?php if (isset($_SESSION['user'])): ?>
-                        <div class="header__profile">
-                            <img src="<?= htmlspecialchars($avatarPath) ?>" class="header__avatar" alt="Avatar">
-                            <span class="header__username">
-                                <?= htmlspecialchars($_SESSION['user']['username']) ?>
-                            </span>
-                            <a href="controllers/AuthController.php?action=logout" class="btn btn--logout">Logout</a>
-                        </div>
-                    <?php else: ?>
-                        <a href="login.php" class="btn btn--login">Login</a>
-                        <a href="register.php" class="btn btn--singin">Sign Up</a>
-                    <?php endif; ?>
-                </div>
+                <div class="header-nav__profile">
+        <?php if (isset($_SESSION['user'])): ?>
+            <?php $role = $_SESSION['user']['role'] ?? 'user'; ?>
+
+            <!-- Nút tài khoản -->
+            <button type="button" class="header-nav__user">
+                <img src="uploads/IMAGE/OIP.webp" class="header-nav__avatar" alt="Avatar">
+                <span class="header-nav__name">
+                    <?= htmlspecialchars($_SESSION['user']['username']); ?>
+                </span>
+                <i class="fa-solid fa-chevron-down header-nav__caret"></i>
+            </button>
+
+            <!-- Dropdown -->
+            <div class="header-nav__dropdown">
+                <?php if ($role === 'admin'): ?>
+                    <a href="admin/dashboard.php" class="header-nav__dropdown-item">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <hr class="header-nav__divider">
+                <?php endif; ?>
+
+                <a href="cart.php" class="header-nav__dropdown-item">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Cart</span>
+                </a>
+
+                <a href="orders.php" class="header-nav__dropdown-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Orders</span>
+                </a>
+
+                <a href="controllers/AuthController.php?action=logout"
+                   class="header-nav__dropdown-item header-nav__dropdown-item--logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+
+        <?php else: ?>
+            <a href="login.php" class="header-nav__link btn-login">Login</a>
+            <a href="register.php" class="header-nav__link btn-register">Sign Up</a>
+        <?php endif; ?>
+    </div>
             </div>
         </header>
 
@@ -518,7 +650,7 @@ we help students transform their passion for coding into real opportunities.
                 <div class="tools__decor tools__decor--icon-right"><i class="fa-solid fa-person-chalkboard"></i></div>
 
                 <div class="tools__photo">
-                    <img src="./uploads/IMAGE/image 12.png" alt="Teacher with books" class="tools__photo-img">
+                    <img src="uploads/IMAGE/image (1).png" alt="Teacher with books" class="tools__photo-img">
                 </div>
 
                 <div class="tools__decor tools__decor--dots"></div>
