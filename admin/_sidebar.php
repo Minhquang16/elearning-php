@@ -72,7 +72,7 @@ if (!isset($activePage)) {
         </nav>
 
         <div class="sidebar__footer">
-            <span class="sidebar__version">Admin Panel v1.0</span>
+            <span class="sidebar__version">© Web E-Learning Nhom 1</span>
         </div>
     </aside>
 </body>
