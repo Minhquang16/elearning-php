@@ -21,14 +21,14 @@
 
                 <div class="footer-links-and-copyright">
                     <div class="footer-links">
-                        <a href="#" class="footer-link">Careers</a>
+                        <a href="search.php" class="footer-link">All Courses</a>
                         <span class="link-separator">·</span>
-                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="contact.php" class="footer-link">Contact</a>
                         <span class="link-separator">·</span>
                         <a href="#" class="footer-link">Terms & Conditions</a>
                     </div>
                     <p class="copyright-text">
-                        © 2021 Class Technologies Inc.
+                        © Web E-Learning Nhom 1
                     </p>
                 </div>
             </div>

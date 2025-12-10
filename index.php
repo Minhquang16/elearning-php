@@ -15,6 +15,7 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
         <title>Dev alpha</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="uploads/IMAGE/Black White Professional Minimal Brand Logo.png">
         <!-- Viewport meta tag cho responsive design:
              - width=device-width: chiều rộng bằng chiều rộng thiết bị
              - initial-scale=1.0: không zoom khi load trang -->

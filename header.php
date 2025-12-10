@@ -7,12 +7,12 @@ if (session_status() === PHP_SESSION_NONE) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>okt</title>
+    <title>Dev Alpha</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="uploads/IMAGE/Black White Professional Minimal Brand Logo.png">
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="./assets/CSS/course.css">
     <link rel="stylesheet" href="./assets/CSS/base.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
