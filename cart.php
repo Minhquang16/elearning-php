@@ -7,30 +7,42 @@ if (!isset($_SESSION['cart'])) {
 }
 
 /**
- * 1. Thêm sản phẩm vào giỏ (từ course.php)
+ * 1. Thêm sản phẩm vào giỏ (từ course.php, search.php, v.v.)
  */
 if (isset($_POST['add_to_cart'])) {
-    $id    = $_POST['course_id'];
-    $name  = $_POST['course_name'];
-    $price = (float) $_POST['course_price'];
-    $image = $_POST['course_image'];
+    $id    = (int)($_POST['course_id'] ?? 0);
+    $name  = $_POST['course_name'] ?? '';
+    $price = (float)($_POST['course_price'] ?? 0);
+    $image = $_POST['course_image'] ?? '';
 
-    if (isset($_SESSION['cart'][$id])) {
-        $_SESSION['cart'][$id]['quantity'] += 1;
-    } else {
-        $_SESSION['cart'][$id] = [
-            'id'       => $id,
-            'name'     => $name,
-            'price'    => $price,
-            'image'    => $image,
-            'quantity' => 1,
-        ];
+    if ($id > 0) {
+        if (isset($_SESSION['cart'][$id])) {
+            $_SESSION['cart'][$id]['quantity'] += 1;
+        } else {
+            $_SESSION['cart'][$id] = [
+                'id'       => $id,
+                'name'     => $name,
+                'price'    => $price,
+                'image'    => $image,
+                'quantity' => 1,
+            ];
+        }
+
+        // Nếu form gửi kèm go_checkout => đi thẳng sang trang thanh toán
+        if (!empty($_POST['go_checkout'])) {
+            // chỉ thanh toán khóa học này
+            $_SESSION['checkout_items'] = [$id];
+
+            header('Location: checkout_page.php');
+            exit;
+        }
     }
 
-    // Quay lại trang trước
+    // Mặc định: quay lại trang trước (hành vi cũ)
     header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? 'index.php'));
     exit;
 }
+
 
 /**
  * 2. Xử lý update / xóa / checkout

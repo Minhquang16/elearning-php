@@ -74,10 +74,10 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                             <a href="index.php" class="header__nav-item-link">Home</a>
                         </li>
                         <li class="header__nav-item">
-                            <a href="course.php" class="header__nav-item-link">Courses</a>
+                            <a href="course.php" class="header__nav-item-link">My Courses</a>
                         </li>
                         <li class="header__nav-item">
-                            <a href="" class="header__nav-item-link">Careers</a>
+                            <a href="search.php" class="header__nav-item-link">All Courses</a>
                         </li>
                         <li class="header__nav-item">
                             <a href="blog.php" class="header__nav-item-link">Blog</a>
@@ -158,15 +158,18 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
                             </div>
 
                             <!-- Congratulations Card -->
-                            <div class="card card--notification card--middle-right">
-                                <div class="card__icon card__icon--orange">
-                                    <i class="fa-solid fa-envelope"></i>
+                             <a href="contact.php">
+                                <div class="card card--notification card--middle-right">
+                                    <div class="card__icon card__icon--orange">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div class="card__content">
+                                        <div class="card__title">Congratulations</div>
+                                        <div class="card__subtitle">Your admission completed</div>
+                                    </div>
                                 </div>
-                                <div class="card__content">
-                                    <div class="card__title">Congratulations</div>
-                                    <div class="card__subtitle">Your admission completed</div>
-                                </div>
-                            </div>
+                            </a>
+                            
 
                             <!-- User Experience Class Card -->
                             <div class="card card--class card--bottom-left">
