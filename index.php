@@ -69,7 +69,7 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
         padding: 6px 10px;
         border-radius: 999px;
         border: 1px solid rgba(0,0,0,0.03);
-        background: #ffffff;
+        background: transparent;
         cursor: pointer;
         outline: none;
         box-shadow: 0 4px 10px rgba(0,0,0,0.04);
@@ -105,9 +105,9 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
         right: 0;
         top: calc(100% + 8px);
         min-width: 190px;
-        background: #ffffff;
+        background: transparent;
         border-radius: 14px;
-        border: 1px solid #e4ebff;
+        /* border: 1px solid #e4ebff; */
         box-shadow: 0 14px 30px rgba(0,0,0,0.08);
         padding: 6px 0;
         opacity: 0;
@@ -162,12 +162,14 @@ $avatarPath = isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] 
         <header class="header">
             <div class="header__container">
                 <!--logo-->
-                <div class="header__logo">
+                <a href="index.php">
+                   <div class="header__logo">
                     <div class="header__logo-icon">
                         <i class="fa-brands fa-codiepie"></i>
                     </div>
-                    dev <br> Alpha
-                </div>
+                </div> 
+                </a>
+                
                 <!--nav-->
                 <nav class="header__nav">
                     <ul class="header__nav-list">

@@ -142,14 +142,16 @@ if (session_status() === PHP_SESSION_NONE) {
 </style>
 
 <header class="header-nav">
-    <div class="header-nav__left">
-        <div class="header__logo">
-            <div class="header__logo-icon">
-                <i class="fa-brands fa-codiepie"></i>
+    <a href="index.php">
+        <div class="header-nav__left">
+                <div class="header__logo">
+                    <div class="header__logo-icon">
+                        <i class="fa-brands fa-codiepie"></i>
+                    </div>
+                </div>
             </div>
-            dev <br> Alpha
-        </div>
-    </div>
+    </a>
+    
 
     <nav class="header-nav__menu">
         <ul class="header-nav__list">
